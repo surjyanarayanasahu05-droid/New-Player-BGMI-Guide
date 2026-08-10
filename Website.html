@@ -1,0 +1,2885 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport"
+content="width=device-width, initial-scale=1.0">
+
+<title>BGMI Guide Hub</title>
+
+
+<style>
+
+/* =====================================================
+   GLOBAL
+===================================================== */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:Arial,Helvetica,sans-serif;
+    background:#080c11;
+    color:white;
+    line-height:1.6;
+}
+
+body.locked{
+    overflow:hidden;
+}
+
+
+/* =====================================================
+   NAVBAR
+===================================================== */
+
+nav{
+
+    position:sticky;
+    top:0;
+
+    z-index:1000;
+
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+
+    padding:18px 8%;
+
+    background:rgba(7,11,16,.96);
+
+    backdrop-filter:blur(10px);
+
+    border-bottom:1px solid #222b35;
+}
+
+.logo{
+
+    font-size:25px;
+
+    font-weight:900;
+
+    color:#ffb300;
+}
+
+.logo span{
+    color:white;
+}
+
+nav ul{
+
+    display:flex;
+
+    list-style:none;
+
+    gap:25px;
+}
+
+nav a{
+
+    color:#ddd;
+
+    text-decoration:none;
+
+    transition:.3s;
+}
+
+nav a:hover{
+    color:#ffb300;
+}
+
+
+/* =====================================================
+   HERO
+===================================================== */
+
+.hero{
+
+    min-height:90vh;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    text-align:center;
+
+    padding:40px 20px;
+
+    background:
+
+    linear-gradient(
+        rgba(4,7,11,.72),
+        rgba(4,7,11,.95)
+    ),
+
+    radial-gradient(
+        circle,
+        #294258,
+        #070a0e 70%
+    );
+}
+
+.hero-content{
+    max-width:850px;
+}
+
+.hero h1{
+
+    font-size:
+    clamp(50px,9vw,95px);
+
+    font-weight:900;
+
+    color:#ffb300;
+
+    text-transform:uppercase;
+
+    letter-spacing:4px;
+}
+
+.hero h2{
+
+    font-size:
+    clamp(22px,4vw,36px);
+
+    margin-bottom:20px;
+}
+
+.hero p{
+
+    max-width:680px;
+
+    margin:auto;
+
+    color:#c4ccd4;
+}
+
+.btn{
+
+    display:inline-block;
+
+    margin-top:30px;
+
+    padding:14px 28px;
+
+    background:#ffb300;
+
+    color:#111;
+
+    text-decoration:none;
+
+    font-weight:bold;
+
+    border-radius:8px;
+
+    transition:.3s;
+}
+
+.btn:hover{
+
+    transform:translateY(-4px);
+
+    background:#ffc533;
+
+    box-shadow:
+    0 10px 30px
+    rgba(255,179,0,.25);
+}
+
+
+/* =====================================================
+   SECTIONS
+===================================================== */
+
+section{
+    padding:80px 8%;
+}
+
+.section-title{
+
+    text-align:center;
+
+    margin-bottom:45px;
+}
+
+.section-title h2{
+
+    color:#ffb300;
+
+    font-size:38px;
+}
+
+.section-title p{
+    color:#9ba4ad;
+}
+
+
+/* =====================================================
+   GUIDE CARDS
+===================================================== */
+
+.cards{
+
+    display:grid;
+
+    grid-template-columns:
+    repeat(auto-fit,minmax(230px,1fr));
+
+    gap:22px;
+}
+
+.card{
+
+    background:#121820;
+
+    padding:28px;
+
+    border-radius:14px;
+
+    border:1px solid #25303a;
+
+    transition:.3s;
+}
+
+.card:hover{
+
+    transform:translateY(-7px);
+
+    border-color:#ffb300;
+
+    box-shadow:
+    0 15px 35px
+    rgba(0,0,0,.35);
+}
+
+.card .icon{
+
+    font-size:38px;
+
+    margin-bottom:12px;
+}
+
+.card h3{
+    margin-bottom:10px;
+}
+
+.card p{
+    color:#aeb6be;
+}
+
+.guide-card{
+    cursor:pointer;
+}
+
+.open-guide{
+
+    display:inline-block;
+
+    margin-top:15px;
+
+    color:#ffb300;
+
+    font-weight:bold;
+}
+
+
+/* =====================================================
+   TIPS
+===================================================== */
+
+.tips{
+    background:#0d131a;
+}
+
+.tip-list{
+
+    max-width:900px;
+
+    margin:auto;
+}
+
+.tip{
+
+    display:flex;
+
+    gap:18px;
+
+    padding:20px;
+
+    margin-bottom:15px;
+
+    background:#151d26;
+
+    border-left:
+    4px solid #ffb300;
+
+    border-radius:8px;
+}
+
+.tip-number{
+
+    color:#ffb300;
+
+    font-size:24px;
+
+    font-weight:bold;
+}
+
+.tip p{
+    color:#aeb6be;
+}
+
+
+/* =====================================================
+   VEHICLE STRATEGY
+===================================================== */
+
+.vehicle-section{
+
+    background:
+    linear-gradient(
+        rgba(10,15,20,.96),
+        rgba(10,15,20,.96)
+    );
+}
+
+.vehicle-grid{
+
+    display:grid;
+
+    grid-template-columns:
+    repeat(auto-fit,minmax(250px,1fr));
+
+    gap:22px;
+
+    max-width:1100px;
+
+    margin:auto;
+}
+
+.vehicle-card{
+
+    background:#121820;
+
+    border:1px solid #26313b;
+
+    padding:25px;
+
+    border-radius:14px;
+
+    transition:.3s;
+}
+
+.vehicle-card:hover{
+
+    transform:translateY(-5px);
+
+    border-color:#ffb300;
+}
+
+.vehicle-card h3{
+
+    color:#ffb300;
+
+    font-size:24px;
+
+    margin-bottom:12px;
+}
+
+.vehicle-card p{
+    color:#b7bec6;
+}
+
+.vehicle-card ul{
+
+    margin-top:15px;
+
+    padding-left:20px;
+
+    color:#d1d6db;
+}
+
+
+/* =====================================================
+   WEAPONS BUTTON
+===================================================== */
+
+.weapon-button-section{
+
+    text-align:center;
+
+    background:#0b1016;
+}
+
+.weapon-button{
+
+    display:inline-block;
+
+    padding:18px 45px;
+
+    border:none;
+
+    border-radius:10px;
+
+    background:#ffb300;
+
+    color:#111;
+
+    font-size:19px;
+
+    font-weight:900;
+
+    cursor:pointer;
+
+    transition:.3s;
+}
+
+.weapon-button:hover{
+
+    background:#ffc533;
+
+    transform:
+    translateY(-4px);
+
+    box-shadow:
+    0 12px 30px
+    rgba(255,179,0,.25);
+}
+
+
+/* =====================================================
+   TABLE
+===================================================== */
+
+.table-container{
+    overflow-x:auto;
+}
+
+table{
+
+    width:100%;
+
+    border-collapse:collapse;
+
+    background:#121820;
+}
+
+th,td{
+
+    padding:15px;
+
+    text-align:left;
+
+    border-bottom:
+    1px solid #28313b;
+}
+
+th{
+
+    background:#ffb300;
+
+    color:#111;
+}
+
+td{
+    color:#c6ccd2;
+}
+
+
+/* =====================================================
+   GUIDE WINDOWS
+===================================================== */
+
+.guide-window{
+
+    display:none;
+
+    position:fixed;
+
+    z-index:5000;
+
+    inset:0;
+
+    width:100%;
+
+    height:100%;
+
+    background:#080c11;
+
+    overflow-y:auto;
+}
+
+.guide-header{
+
+    padding:65px 20px;
+
+    text-align:center;
+
+    background:
+
+    linear-gradient(
+        rgba(5,8,12,.75),
+        rgba(5,8,12,.96)
+    ),
+
+    radial-gradient(
+        circle,
+        #344d62,
+        #080b0f 70%
+    );
+}
+
+.guide-header h1{
+
+    font-size:
+    clamp(40px,7vw,75px);
+
+    color:#ffb300;
+
+    text-transform:uppercase;
+}
+
+.guide-header p{
+
+    max-width:750px;
+
+    margin:15px auto;
+
+    color:#b9c1c9;
+}
+
+.close-guide{
+
+    display:inline-block;
+
+    margin-top:25px;
+
+    padding:12px 25px;
+
+    background:#ffb300;
+
+    color:#111;
+
+    border:none;
+
+    border-radius:7px;
+
+    font-size:16px;
+
+    font-weight:bold;
+
+    cursor:pointer;
+}
+
+.guide-content{
+
+    padding:65px 8%;
+}
+
+.guide-grid{
+
+    display:grid;
+
+    grid-template-columns:
+    repeat(auto-fit,minmax(250px,1fr));
+
+    gap:22px;
+
+    max-width:1100px;
+
+    margin:auto;
+}
+
+.guide-box{
+
+    background:#121820;
+
+    border:1px solid #26313b;
+
+    border-radius:14px;
+
+    padding:25px;
+
+    transition:.3s;
+}
+
+.guide-box:hover{
+
+    transform:translateY(-5px);
+
+    border-color:#ffb300;
+}
+
+.guide-box h3{
+
+    color:#ffb300;
+
+    font-size:24px;
+
+    margin-bottom:12px;
+}
+
+.guide-box p{
+    color:#b7bec6;
+}
+
+.guide-box ul{
+
+    margin-top:15px;
+
+    padding-left:20px;
+
+    color:#d1d6db;
+}
+
+.strategy{
+
+    max-width:950px;
+
+    margin:45px auto;
+}
+
+.step{
+
+    background:#121820;
+
+    border-left:
+    4px solid #ffb300;
+
+    margin-bottom:15px;
+
+    padding:22px;
+
+    border-radius:8px;
+}
+
+.step h3{
+    margin-bottom:6px;
+}
+
+.step p{
+    color:#aeb6be;
+}
+
+
+/* =====================================================
+   WEAPON DATABASE
+===================================================== */
+
+.weapon-grid{
+
+    display:grid;
+
+    grid-template-columns:
+    repeat(auto-fit,minmax(280px,1fr));
+
+    gap:20px;
+
+    max-width:1200px;
+
+    margin:auto;
+}
+
+.weapon-card{
+
+    background:#121820;
+
+    border:1px solid #29333e;
+
+    border-radius:14px;
+
+    padding:25px;
+
+    transition:.3s;
+}
+
+.weapon-card:hover{
+
+    border-color:#ffb300;
+
+    transform:translateY(-5px);
+}
+
+.weapon-card h3{
+
+    color:#ffb300;
+
+    font-size:25px;
+
+    margin-bottom:8px;
+}
+
+.weapon-type{
+
+    display:inline-block;
+
+    background:#26313b;
+
+    color:#ffb300;
+
+    padding:4px 10px;
+
+    border-radius:20px;
+
+    font-size:12px;
+
+    margin-bottom:12px;
+}
+
+.weapon-card p{
+
+    color:#b8c0c8;
+
+    margin-bottom:12px;
+}
+
+.weapon-card strong{
+    color:white;
+}
+
+.weapon-card ul{
+
+    padding-left:20px;
+
+    color:#d0d5da;
+}
+
+
+/* =====================================================
+   FOOTER
+===================================================== */
+
+footer{
+
+    text-align:center;
+
+    padding:30px;
+
+    background:#06090d;
+
+    color:#777;
+}
+
+footer strong{
+    color:#ffb300;
+}
+
+
+/* =====================================================
+   MOBILE
+===================================================== */
+
+@media(max-width:700px){
+
+    nav{
+        padding:15px 5%;
+    }
+
+    nav ul{
+
+        gap:12px;
+
+        font-size:13px;
+    }
+
+    section{
+        padding:60px 5%;
+    }
+
+    .tip{
+        flex-direction:column;
+    }
+
+    th,td{
+
+        padding:10px;
+
+        font-size:13px;
+    }
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<!-- =====================================================
+     NAVBAR
+===================================================== -->
+
+<nav>
+
+<div class="logo">
+BGMI<span>GUIDE</span>
+</div>
+
+<ul>
+
+<li>
+<a href="#guides">Guides</a>
+</li>
+
+<li>
+<a href="#tips">Tips</a>
+</li>
+
+<li>
+<a href="#vehicles">Vehicles</a>
+</li>
+
+<li>
+<a href="#weapons">Weapons</a>
+</li>
+
+</ul>
+
+</nav>
+
+
+<!-- =====================================================
+     HERO
+===================================================== -->
+
+<header class="hero">
+
+<div class="hero-content">
+
+<h1>BGMI</h1>
+
+<h2>Level Up Your Game</h2>
+
+<p>
+
+Learn aim, movement, map strategy,
+game sense, vehicle strategy and
+weapon knowledge.
+
+</p>
+
+<a href="#guides" class="btn">
+START LEARNING
+</a>
+
+</div>
+
+</header>
+
+
+<!-- =====================================================
+     GAME GUIDES
+===================================================== -->
+
+<section id="guides">
+
+<div class="section-title">
+
+<h2>Game Guides</h2>
+
+<p>
+Choose a guide and start improving.
+</p>
+
+</div>
+
+
+<div class="cards">
+
+
+<!-- AIM -->
+
+<div
+class="card guide-card"
+onclick="openGuide('aimGuide')"
+>
+
+<div class="icon">🎯</div>
+
+<h3>Aim Training</h3>
+
+<p>
+Improve recoil control, tracking,
+crosshair placement and reaction time.
+</p>
+
+<span class="open-guide">
+Open Aim Guide →
+</span>
+
+</div>
+
+
+<!-- MOVEMENT -->
+
+<div
+class="card guide-card"
+onclick="openGuide('movementGuide')"
+>
+
+<div class="icon">🏃</div>
+
+<h3>Movement</h3>
+
+<p>
+Learn strafing, crouching, peeking,
+jumping and movement techniques.
+</p>
+
+<span class="open-guide">
+Open Movement Guide →
+</span>
+
+</div>
+
+
+<!-- MAP -->
+
+<div
+class="card guide-card"
+onclick="openGuide('mapGuide')"
+>
+
+<div class="icon">🗺️</div>
+
+<h3>Map Strategy</h3>
+
+<p>
+Learn landing spots, rotations,
+zone positioning and end-game strategy.
+</p>
+
+<span class="open-guide">
+Open Map Guide →
+</span>
+
+</div>
+
+
+<!-- GAME SENSE -->
+
+<div
+class="card guide-card"
+onclick="openGuide('senseGuide')"
+>
+
+<div class="icon">🧠</div>
+
+<h3>Game Sense</h3>
+
+<p>
+Improve decision-making, positioning,
+sound awareness and fight selection.
+</p>
+
+<span class="open-guide">
+Open Game Sense Guide →
+</span>
+
+</div>
+
+
+</div>
+
+</section>
+
+
+<!-- =====================================================
+     PRO TIPS
+===================================================== -->
+
+<section id="tips" class="tips">
+
+<div class="section-title">
+
+<h2>Pro Tips</h2>
+
+<p>
+Simple habits that can improve your matches.
+</p>
+
+</div>
+
+
+<div class="tip-list">
+
+
+<div class="tip">
+
+<div class="tip-number">01</div>
+
+<div>
+
+<h3>Always Use Cover</h3>
+
+<p>
+Avoid standing in open areas during fights.
+Use walls, rocks, buildings and terrain as cover.
+</p>
+
+</div>
+
+</div>
+
+
+<div class="tip">
+
+<div class="tip-number">02</div>
+
+<div>
+
+<h3>Listen Carefully</h3>
+
+<p>
+Footsteps and gunfire can provide important
+information about enemy positions.
+</p>
+
+</div>
+
+</div>
+
+
+<div class="tip">
+
+<div class="tip-number">03</div>
+
+<div>
+
+<h3>Don't Rush Every Fight</h3>
+
+<p>
+Winning a match is about making good decisions,
+not simply getting the highest number of kills.
+</p>
+
+</div>
+
+</div>
+
+
+<div class="tip">
+
+<div class="tip-number">04</div>
+
+<div>
+
+<h3>Keep Your Crosshair Ready</h3>
+
+<p>
+Keep your crosshair around likely enemy head
+or upper-body height.
+</p>
+
+</div>
+
+</div>
+
+
+</div>
+
+</section>
+
+
+<!-- =====================================================
+     VEHICLE STRATEGY
+===================================================== -->
+
+<section id="vehicles" class="vehicle-section">
+
+<div class="section-title">
+
+<h2>🚗 Vehicle Strategy</h2>
+
+<p>
+Use vehicles intelligently for rotations,
+positioning and survival.
+</p>
+
+</div>
+
+
+<div class="vehicle-grid">
+
+
+<div class="vehicle-card">
+
+<h3>
+🚙 Rotation
+</h3>
+
+<p>
+Vehicles can help you move quickly when the
+safe zone is far away.
+</p>
+
+<ul>
+
+<li>Rotate before the zone becomes dangerous.</li>
+
+<li>Choose routes with useful cover.</li>
+
+<li>Don't drive directly through obvious enemy positions.</li>
+
+</ul>
+
+</div>
+
+
+<div class="vehicle-card">
+
+<h3>
+🛡️ Vehicle Cover
+</h3>
+
+<p>
+A vehicle can sometimes provide temporary cover
+when terrain is limited.
+</p>
+
+<ul>
+
+<li>Use it carefully as temporary protection.</li>
+
+<li>Park strategically when possible.</li>
+
+<li>Don't assume a vehicle makes you completely safe.</li>
+
+</ul>
+
+</div>
+
+
+<div class="vehicle-card">
+
+<h3>
+🏎️ Choosing a Vehicle
+</h3>
+
+<p>
+Different vehicles can be useful in different
+situations and terrain.
+</p>
+
+<ul>
+
+<li>Consider speed.</li>
+
+<li>Consider terrain.</li>
+
+<li>Consider passenger capacity.</li>
+
+<li>Consider how exposed the vehicle is.</li>
+
+</ul>
+
+</div>
+
+
+<div class="vehicle-card">
+
+<h3>
+🔊 Avoid Unnecessary Noise
+</h3>
+
+<p>
+Vehicles can reveal your approximate position.
+Use them when the mobility advantage is worth it.
+</p>
+
+<ul>
+
+<li>Don't drive around without a reason.</li>
+
+<li>Leave the vehicle when you reach a useful position.</li>
+
+<li>Think about nearby enemies before stopping.</li>
+
+</ul>
+
+</div>
+
+
+<div class="vehicle-card">
+
+<h3>
+🗺️ Rotation Planning
+</h3>
+
+<p>
+Plan where you want to go before entering the
+vehicle instead of driving randomly.
+</p>
+
+<ul>
+
+<li>Check the zone first.</li>
+
+<li>Choose your destination.</li>
+
+<li>Look for possible stopping points.</li>
+
+</ul>
+
+</div>
+
+
+<div class="vehicle-card">
+
+<h3>
+⚠️ When to Leave
+</h3>
+
+<p>
+A vehicle is a tool, not something you need to
+keep using throughout the entire match.
+</p>
+
+<ul>
+
+<li>Leave when you reach safe cover.</li>
+
+<li>Don't park directly beside enemies.</li>
+
+<li>Always have a backup plan.</li>
+
+</ul>
+
+</div>
+
+
+</div>
+
+
+<!-- VEHICLE STEPS -->
+
+<div class="section-title" style="margin-top:80px">
+
+<h2>Smart Vehicle Rotation</h2>
+
+</div>
+
+
+<div class="strategy">
+
+
+<div class="step">
+
+<h3>
+01 — Check the Zone
+</h3>
+
+<p>
+Before driving, check where the safe area is
+and estimate the direction you need to travel.
+</p>
+
+</div>
+
+
+<div class="step">
+
+<h3>
+02 — Choose a Route
+</h3>
+
+<p>
+Prefer routes that reduce unnecessary exposure
+and give you options to stop near cover.
+</p>
+
+</div>
+
+
+<div class="step">
+
+<h3>
+03 — Avoid Predictable Roads
+</h3>
+
+<p>
+Roads are convenient but can make your movement
+easy for enemies to anticipate.
+</p>
+
+</div>
+
+
+<div class="step">
+
+<h3>
+04 — Stop at a Useful Position
+</h3>
+
+<p>
+Don't automatically drive all the way into an
+enemy-controlled area. Stop where you can continue
+on foot with cover.
+</p>
+
+</div>
+
+
+<div class="step">
+
+<h3>
+05 — Secure the Vehicle
+</h3>
+
+<p>
+If you may need the vehicle again, think carefully
+about where you leave or park it.
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- =====================================================
+     WEAPON BUTTON
+===================================================== -->
+
+<section id="weapons" class="weapon-button-section">
+
+<div class="section-title">
+
+<h2>🔫 Weapon Guide</h2>
+
+<p>
+Want to learn about the weapons? Open the complete
+weapon database.
+</p>
+
+</div>
+
+
+<button
+class="weapon-button"
+onclick="openGuide('weaponGuide')"
+>
+
+OPEN ALL WEAPONS →
+
+</button>
+
+</section>
+
+
+<!-- =====================================================
+     AIM GUIDE
+===================================================== -->
+
+<div
+id="aimGuide"
+class="guide-window"
+>
+
+<div class="guide-header">
+
+<h1>Aim Training</h1>
+
+<p>
+Build consistent aim by practicing crosshair
+placement, recoil control, tracking and reaction time.
+</p>
+
+<button
+class="close-guide"
+onclick="closeGuide('aimGuide')"
+>
+← Back to Main Guide
+</button>
+
+</div>
+
+
+<div class="guide-content">
+
+
+<div class="section-title">
+
+<h2>Aim Fundamentals</h2>
+
+<p>
+Master these skills before trying advanced techniques.
+</p>
+
+</div>
+
+
+<div class="guide-grid">
+
+
+<div class="guide-box">
+
+<h3>🎯 Crosshair Placement</h3>
+
+<p>
+Keep your crosshair around upper-body or head
+height while moving around the map.
+</p>
+
+<ul>
+
+<li>Avoid looking at the ground.</li>
+
+<li>Pre-aim common angles.</li>
+
+<li>Keep your crosshair ready.</li>
+
+</ul>
+
+</div>
+
+
+<div class="guide-box">
+
+<h3>🔫 Recoil Control</h3>
+
+<p>
+Learn how your weapon moves while firing and
+practice controlling that movement.
+</p>
+
+<ul>
+
+<li>Start with short bursts.</li>
+
+<li>Practice at different distances.</li>
+
+<li>Learn individual weapon behavior.</li>
+
+</ul>
+
+</div>
+
+
+<div class="guide-box">
+
+<h3>👁️ Tracking</h3>
+
+<p>
+Practice keeping your crosshair on moving targets
+instead of constantly flicking.
+</p>
+
+<ul>
+
+<li>Follow targets smoothly.</li>
+
+<li>Avoid over-correction.</li>
+
+<li>Practice multiple distances.</li>
+
+</ul>
+
+</div>
+
+
+<div class="guide-box">
+
+<h3>⚡ Reaction Time</h3>
+
+<p>
+Improve how quickly you respond when an enemy
+appears unexpectedly.
+</p>
+
+<ul>
+
+<li>Practice target switching.</li>
+
+<li>Keep sensitivity comfortable.</li>
+
+<li>Stay calm during fights.</li>
+
+</ul>
+
+</div>
+
+</div>
+
+
+<div class="section-title" style="margin-top:80px">
+
+<h2>Daily Aim Routine</h2>
+
+</div>
+
+
+<div class="strategy">
+
+
+<div class="step">
+
+<h3>01 — Warm Up</h3>
+
+<p>
+Spend a few minutes practicing basic movement
+and aiming before serious matches.
+</p>
+
+</div>
+
+
+<div class="step">
+
+<h3>02 — Recoil Practice</h3>
+
+<p>
+Practice controlling recoil with weapons you
+regularly use.
+</p>
+
+</div>
+
+
+<div class="step">
+
+<h3>03 — Tracking Practice</h3>
+
+<p>
+Focus on smoothly following moving targets.
+</p>
+
+</div>
+
+
+<div class="step">
+
+<h3>04 — Target Switching</h3>
+
+<p>
+Practice moving between multiple targets while
+maintaining control.
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+
+<!-- =====================================================
+     MOVEMENT GUIDE
+===================================================== -->
+
+<div
+id="movementGuide"
+class="guide-window"
+>
+
+<div class="guide-header">
+
+<h1>Movement</h1>
+
+<p>
+Learn how to move intelligently, use cover,
+peek effectively and reposition.
+</p>
+
+<button
+class="close-guide"
+onclick="closeGuide('movementGuide')"
+>
+← Back to Main Guide
+</button>
+
+</div>
+
+
+<div class="guide-content">
+
+
+<div class="section-title">
+
+<h2>Movement Fundamentals</h2>
+
+</div>
+
+
+<div class="guide-grid">
+
+
+<div class="guide-box">
+
+<h3>🏃 Strafing</h3>
+
+<p>
+Move laterally while fighting to make your
+movement less predictable.
+</p>
+
+<ul>
+
+<li>Use controlled movement.</li>
+
+<li>Avoid repeating patterns.</li>
+
+<li>Keep aim stable.</li>
+
+</ul>
+
+</div>
+
+
+<div class="guide-box">
+
+<h3>🧎 Crouching</h3>
+
+<p>
+Crouching can change your profile during fights.
+</p>
+
+<ul>
+
+<li>Don't crouch constantly.</li>
+
+<li>Use it intentionally.</li>
+
+<li>Combine with movement.</li>
+
+</ul>
+
+</div>
+
+
+<div class="guide-box">
+
+<h3>👀 Peeking</h3>
+
+<p>
+Use cover to expose as little of yourself as
+possible.
+</p>
+
+<ul>
+
+<li>Peek from cover.</li>
+
+<li>Return to cover.</li>
+
+<li>Avoid standing exposed.</li>
+
+</ul>
+
+</div>
+
+
+<div class="guide-box">
+
+<h3>🪨 Cover Movement</h3>
+
+<p>
+Move from one piece of cover to another instead
+of crossing large exposed areas.
+</p>
+
+<ul>
+
+<li>Plan your next cover.</li>
+
+<li>Use terrain.</li>
+
+<li>Avoid unnecessary exposure.</li>
+
+</ul>
+
+</div>
+
+</div>
+
+
+<div class="section-title" style="margin-top:80px">
+
+<h2>Movement Strategy</h2>
+
+</div>
+
+
+<div class="strategy">
+
+
+<div class="step">
+
+<h3>01 — Don't Move Randomly</h3>
+
+<p>
+Every movement should have a purpose such as
+reaching cover, changing position or gaining an angle.
+</p>
+
+</div>
+
+
+<div class="step">
+
+<h3>02 — Break Predictable Patterns</h3>
+
+<p>
+Avoid repeating exactly the same movement during
+every engagement.
+</p>
+
+</div>
+
+
+<div class="step">
+
+<h3>03 — Use Cover</h3>
+
+<p>
+Move between useful pieces of cover whenever possible.
+</p>
+
+</div>
+
+
+<div class="step">
+
+<h3>04 — Reposition After Fighting</h3>
+
+<p>
+After revealing your position, consider changing
+your angle.
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+
+<!-- =====================================================
+     MAP GUIDE
+===================================================== -->
+
+<div
+id="mapGuide"
+class="guide-window"
+>
+
+<div class="guide-header">
+
+<h1>Map Strategy</h1>
+
+<p>
+Learn landing locations, rotations, zone positioning,
+terrain usage and final-zone strategy.
+</p>
+
+<button
+class="close-guide"
+onclick="closeGuide('mapGuide')"
+>
+← Back to Main Guide
+</button>
+
+</div>
+
+
+<div class="guide-content">
+
+
+<div class="section-title">
+
+<h2>Map Guides</h2>
+
+</div>
+
+
+<div class="guide-grid">
+
+
+<div class="guide-box">
+
+<h3>🌳 Erangel</h3>
+
+<p>
+A balanced environment with cities, compounds,
+open fields and varied terrain.
+</p>
+
+<ul>
+
+<li>Prioritize strong compounds.</li>
+
+<li>Watch open-field rotations.</li>
+
+<li>Use hills for visibility.</li>
+
+<li>Rotate before the zone closes.</li>
+
+</ul>
+
+</div>
+
+
+<div class="guide-box">
+
+<h3>🏜️ Miramar</h3>
+
+<p>
+A large desert environment where terrain and
+long-range positioning matter.
+</p>
+
+<ul>
+
+<li>Use ridges and hills.</li>
+
+<li>Plan vehicle rotations.</li>
+
+<li>Avoid unnecessary open-ground fights.</li>
+
+<li>Watch long sightlines.</li>
+
+</ul>
+
+</div>
+
+
+<div class="guide-box">
+
+<h3>🌴 Sanhok</h3>
+
+<p>
+A smaller environment with dense vegetation
+and frequent close engagements.
+</p>
+
+<ul>
+
+<li>Expect close fights.</li>
+
+<li>Use trees and rocks.</li>
+
+<li>Watch surrounding terrain.</li>
+
+<li>Stay aware of nearby enemies.</li>
+
+</ul>
+
+</div>
+
+
+<div class="guide-box">
+
+<h3>❄️ Vikendi</h3>
+
+<p>
+A varied environment with towns, open terrain
+and different elevation levels.
+</p>
+
+<ul>
+
+<li>Control useful elevation.</li>
+
+<li>Use buildings during rotations.</li>
+
+<li>Plan vehicle routes.</li>
+
+<li>Avoid exposed rotations.</li>
+
+</ul>
+
+</div>
+
+</div>
+
+
+<div class="section-title" style="margin-top:80px">
+
+<h2>Winning Rotation Strategy</h2>
+
+</div>
+
+
+<div class="strategy">
+
+
+<div class="step">
+
+<h3>01 — Choose Your Landing Spot</h3>
+
+<p>
+Choose between safer areas for equipment or
+high-action locations for early fights.
+</p>
+
+</div>
+
+
+<div class="step">
+
+<h3>02 — Loot Quickly</h3>
+
+<p>
+Get essential equipment first and avoid spending
+too much time in one location.
+</p>
+
+</div>
+
+
+<div class="step">
+
+<h3>03 — Check the Zone</h3>
+
+<p>
+Check the safe area and plan your next rotation early.
+</p>
+
+</div>
+
+
+<div class="step">
+
+<h3>04 — Rotate With Cover</h3>
+
+<p>
+Use buildings, hills, rocks and terrain wherever possible.
+</p>
+
+</div>
+
+
+<div class="step">
+
+<h3>05 — Take Useful High Ground</h3>
+
+<p>
+Higher positions can improve visibility, but don't
+expose yourself simply for elevation.
+</p>
+
+</div>
+
+
+<div class="step">
+
+<h3>06 — Prepare for the Final Zone</h3>
+
+<p>
+Keep healing, ammunition and utility available while
+prioritizing cover and information.
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+
+<!-- =====================================================
+     GAME SENSE GUIDE
+===================================================== -->
+
+<div
+id="senseGuide"
+class="guide-window"
+>
+
+<div class="guide-header">
+
+<h1>Game Sense</h1>
+
+<p>
+Learn how to read situations, gather information,
+choose fights and make better decisions.
+</p>
+
+<button
+class="close-guide"
+onclick="closeGuide('senseGuide')"
+>
+← Back to Main Guide
+</button>
+
+</div>
+
+
+<div class="guide-content">
+
+
+<div class="section-title">
+
+<h2>Game Sense Fundamentals</h2>
+
+</div>
+
+
+<div class="guide-grid">
+
+
+<div class="guide-box">
+
+<h3>👂 Sound Awareness</h3>
+
+<p>
+Use footsteps, gunfire and vehicle sounds as
+information about nearby activity.
+</p>
+
+<ul>
+
+<li>Pay attention to direction.</li>
+
+<li>Notice changes in sounds.</li>
+
+<li>Don't ignore distant gunfire.</li>
+
+</ul>
+
+</div>
+
+
+<div class="guide-box">
+
+<h3>👀 Information</h3>
+
+<p>
+Gather information before committing to a fight.
+</p>
+
+<ul>
+
+<li>Check surroundings.</li>
+
+<li>Watch enemy movement.</li>
+
+<li>Identify available cover.</li>
+
+</ul>
+
+</div>
+
+
+<div class="guide-box">
+
+<h3>⚔️ Fight Selection</h3>
+
+<p>
+Not every enemy needs to be engaged immediately.
+</p>
+
+<ul>
+
+<li>Consider your position.</li>
+
+<li>Consider available cover.</li>
+
+<li>Avoid unnecessary fights.</li>
+
+</ul>
+
+</div>
+
+
+<div class="guide-box">
+
+<h3>🧠 Decision Making</h3>
+
+<p>
+Adapt your decisions to the current situation.
+</p>
+
+<ul>
+
+<li>Think about the zone.</li>
+
+<li>Consider your resources.</li>
+
+<li>Adapt to changing situations.</li>
+
+</ul>
+
+</div>
+
+</div>
+
+
+<div class="section-title" style="margin-top:80px">
+
+<h2>Smart Match Strategy</h2>
+
+</div>
+
+
+<div class="strategy">
+
+
+<div class="step">
+
+<h3>01 — Gather Information</h3>
+
+<p>
+Check the zone, sounds, terrain and possible
+enemy positions before moving.
+</p>
+
+</div>
+
+
+<div class="step">
+
+<h3>02 — Evaluate the Fight</h3>
+
+<p>
+Consider whether your position, equipment and
+information give you a reasonable advantage.
+</p>
+
+</div>
+
+
+<div class="step">
+
+<h3>03 — Know When to Disengage</h3>
+
+<p>
+If a fight becomes unfavorable, reposition instead
+of continuing automatically.
+</p>
+
+</div>
+
+
+<div class="step">
+
+<h3>04 — Think About the Next Zone</h3>
+
+<p>
+Don't focus only on the current fight.
+Keep future positioning in mind.
+</p>
+
+</div>
+
+
+<div class="step">
+
+<h3>05 — Stay Calm</h3>
+
+<p>
+Avoid rushed decisions after taking damage or
+encountering an unexpected enemy.
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+
+<!-- =====================================================
+     COMPLETE WEAPON DATABASE
+===================================================== -->
+
+<div
+id="weaponGuide"
+class="guide-window"
+>
+
+<div class="guide-header">
+
+<h1>Some Best weapons Database</h1>
+
+<p>
+Learn the role, strengths, weaknesses and recommended
+use of common BGMI weapon categories.
+</p>
+
+<button
+class="close-guide"
+onclick="closeGuide('weaponGuide')"
+>
+← Back to Main Guide
+</button>
+
+</div>
+
+
+<div class="guide-content">
+
+
+<div class="section-title">
+
+<h2>Assault Rifles</h2>
+
+<p>
+Versatile weapons suitable for many combat situations.
+</p>
+
+</div>
+
+
+<div class="weapon-grid">
+
+
+<div class="weapon-card">
+
+<span class="weapon-type">
+ASSAULT RIFLE
+</span>
+
+<h3>M416</h3>
+
+<p>
+A flexible automatic rifle commonly used for
+medium-range engagements.
+</p>
+
+<p>
+<strong>Best for:</strong>
+Players who want controllable automatic fire.
+</p>
+
+<ul>
+
+<li>Good general-purpose option.</li>
+
+<li>Useful at medium range.</li>
+
+<li>Attachments can improve handling.</li>
+
+</ul>
+
+</div>
+
+
+<div class="weapon-card">
+
+<span class="weapon-type">
+ASSAULT RIFLE
+</span>
+
+<h3>AKM</h3>
+
+<p>
+A hard-hitting rifle that rewards good recoil control.
+</p>
+
+<p>
+<strong>Best for:</strong>
+Players comfortable controlling stronger recoil.
+</p>
+
+<ul>
+
+<li>High damage per shot.</li>
+
+<li>Strong close-to-medium range option.</li>
+
+<li>Requires more recoil management.</li>
+
+</ul>
+
+</div>
+
+
+<div class="weapon-card">
+
+<span class="weapon-type">
+ASSAULT RIFLE
+</span>
+
+<h3>SCAR-L</h3>
+
+<p>
+A familiar automatic rifle with predictable handling.
+</p>
+
+<p>
+<strong>Best for:</strong>
+Beginners learning automatic rifle control.
+</p>
+
+<ul>
+
+<li>Versatile.</li>
+
+<li>Useful in many situations.</li>
+
+<li>Comfortable learning weapon.</li>
+
+</ul>
+
+</div>
+
+
+<div class="weapon-card">
+
+<span class="weapon-type">
+ASSAULT RIFLE
+</span>
+
+<h3>Beryl M762</h3>
+
+<p>
+A powerful automatic rifle that can be effective
+when recoil is controlled.
+</p>
+
+<p>
+<strong>Best for:</strong>
+Experienced players who are comfortable with recoil.
+</p>
+
+<ul>
+
+<li>Strong damage output.</li>
+
+<li>Effective in close and medium fights.</li>
+
+<li>More demanding recoil control.</li>
+
+</ul>
+
+</div>
+
+
+</div>
+
+
+<div class="section-title" style="margin-top:70px">
+
+<h2>SMGs</h2>
+
+<p>
+Fast-firing weapons designed primarily for close combat.
+</p>
+
+</div>
+
+
+<div class="weapon-grid">
+
+
+<div class="weapon-card">
+
+<span class="weapon-type">
+SMG
+</span>
+
+<h3>UMP45</h3>
+
+<p>
+A controllable close-range automatic weapon.
+</p>
+
+<p>
+<strong>Best for:</strong>
+Players who want easy handling in close fights.
+</p>
+
+<ul>
+
+<li>Manageable recoil.</li>
+
+<li>Good close-range option.</li>
+
+<li>Useful for aggressive pushes.</li>
+
+</ul>
+
+</div>
+
+
+<div class="weapon-card">
+
+<span class="weapon-type">
+SMG
+</span>
+
+<h3>Vector</h3>
+
+<p>
+A very fast-firing SMG that can quickly damage
+close targets.
+</p>
+
+<p>
+<strong>Best for:</strong>
+Close-range engagements.
+</p>
+
+<ul>
+
+<li>Very high fire rate.</li>
+
+<li>Strong close-range pressure.</li>
+
+<li>Magazine management is important.</li>
+
+</ul>
+
+</div>
+
+
+<div class="weapon-card">
+
+<span class="weapon-type">
+SMG
+</span>
+
+<h3>UZI</h3>
+
+<p>
+A compact SMG designed for extremely close
+engagements.
+</p>
+
+<p>
+<strong>Best for:</strong>
+Fast close-range fights.
+</p>
+
+<ul>
+
+<li>Fast handling.</li>
+
+<li>Strong mobility.</li>
+
+<li>Less suitable for long range.</li>
+
+</ul>
+
+</div>
+
+
+</div>
+
+
+<div class="section-title" style="margin-top:70px">
+
+<h2>Sniper Rifles</h2>
+
+<p>
+Long-range weapons designed around precision.
+</p>
+
+</div>
+
+
+<div class="weapon-grid">
+
+
+<div class="weapon-card">
+
+<span class="weapon-type">
+SNIPER
+</span>
+
+<h3>Kar98k</h3>
+
+<p>
+A bolt-action rifle designed for precision shooting.
+</p>
+
+<p>
+<strong>Best for:</strong>
+Players who enjoy deliberate long-range shots.
+</p>
+
+<ul>
+
+<li>Strong precision role.</li>
+
+<li>Requires accurate timing.</li>
+
+<li>Useful from elevated positions.</li>
+
+</ul>
+
+</div>
+
+
+<div class="weapon-card">
+
+<span class="weapon-type">
+SNIPER
+</span>
+
+<h3>M24</h3>
+
+<p>
+A powerful bolt-action sniper suited to long-range
+engagements.
+</p>
+
+<p>
+<strong>Best for:</strong>
+Players comfortable with precision shots.
+</p>
+
+<ul>
+
+<li>Strong long-range role.</li>
+
+<li>Useful for picking exposed targets.</li>
+
+<li>Requires patience and accuracy.</li>
+
+</ul>
+
+</div>
+
+
+</div>
+
+
+<div class="section-title" style="margin-top:70px">
+
+<h2>DMRs</h2>
+
+<p>
+Semi-automatic rifles that bridge assault rifles
+and sniper rifles.
+</p>
+
+</div>
+
+
+<div class="weapon-grid">
+
+
+<div class="weapon-card">
+
+<span class="weapon-type">
+DMR
+</span>
+
+<h3>Mini14</h3>
+
+<p>
+A fast semi-automatic rifle useful for medium
+and longer-range engagements.
+</p>
+
+<p>
+<strong>Best for:</strong>
+Players who want rapid follow-up shots.
+</p>
+
+<ul>
+
+<li>Fast projectile speed.</li>
+
+<li>Good medium-to-long range role.</li>
+
+<li>Rewards accurate tapping.</li>
+
+</ul>
+
+</div>
+
+
+<div class="weapon-card">
+
+<span class="weapon-type">
+DMR
+</span>
+
+<h3>SKS</h3>
+
+<p>
+A harder-hitting DMR that rewards controlled
+follow-up shots.
+</p>
+
+<p>
+<strong>Best for:</strong>
+Experienced marksman players.
+</p>
+
+<ul>
+
+<li>Strong damage potential.</li>
+
+<li>Useful at medium and long range.</li>
+
+<li>Requires recoil management.</li>
+
+</ul>
+
+</div>
+
+
+</div>
+
+
+<div class="section-title" style="margin-top:70px">
+
+<h2>Shotguns</h2>
+
+<p>
+Close-range weapons designed around burst damage.
+</p>
+
+</div>
+
+
+<div class="weapon-grid">
+
+
+<div class="weapon-card">
+
+<span class="weapon-type">
+SHOTGUN
+</span>
+
+<h3>S12K</h3>
+
+<p>
+A semi-automatic shotgun suited to aggressive
+close-range engagements.
+</p>
+
+<p>
+<strong>Best for:</strong>
+Close fights where rapid follow-up shots matter.
+</p>
+
+<ul>
+
+<li>Fast follow-up capability.</li>
+
+<li>Strong close-range role.</li>
+
+<li>Range is limited.</li>
+
+</ul>
+
+</div>
+
+
+<div class="weapon-card">
+
+<span class="weapon-type">
+SHOTGUN
+</span>
+
+<h3>S686</h3>
+
+<p>
+A powerful double-barrel shotgun.
+</p>
+
+<p>
+<strong>Best for:</strong>
+Players confident in close-range accuracy.
+</p>
+
+<ul>
+
+<li>Very strong close-range burst.</li>
+
+<li>Requires accurate shots.</li>
+
+<li>Limited ammunition before reloading.</li>
+
+</ul>
+
+</div>
+
+
+</div>
+
+
+<div class="section-title" style="margin-top:70px">
+
+<h2>Weapon Selection Tips</h2>
+
+</div>
+
+
+<div class="strategy">
+
+
+<div class="step">
+
+<h3>
+01 — Think About Your Fighting Distance
+</h3>
+
+<p>
+Choose weapons that complement the distances
+you expect to fight at.
+</p>
+
+</div>
+
+
+<div class="step">
+
+<h3>
+02 — Balance Your Loadout
+</h3>
+
+<p>
+A useful loadout should give you options for
+different engagement ranges.
+</p>
+
+</div>
+
+
+<div class="step">
+
+<h3>
+03 — Learn Your Weapons
+</h3>
+
+<p>
+Instead of constantly changing weapons, spend
+time learning the recoil and handling of the
+weapons you prefer.
+</p>
+
+</div>
+
+
+<div class="step">
+
+<h3>
+04 — Don't Ignore Ammunition
+</h3>
+
+<p>
+A powerful weapon is not useful if you cannot
+maintain enough ammunition for your planned fights.
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+
+<!-- =====================================================
+     FOOTER
+===================================================== -->
+
+<footer>
+
+<p>
+
+<strong>BGMI GUIDE</strong>
+
+— Fan-made educational website.
+
+</p>
+
+<p>
+Not affiliated with or endorsed by KRAFTON.
+</p>
+
+</footer>
+
+
+<!-- =====================================================
+     JAVASCRIPT
+===================================================== -->
+
+<script>
+
+
+/* OPEN GUIDE */
+
+function openGuide(id){
+
+    const guide =
+        document.getElementById(id);
+
+    guide.style.display =
+        "block";
+
+    document.body.classList.add(
+        "locked"
+    );
+
+    guide.scrollTop = 0;
+}
+
+
+/* CLOSE GUIDE */
+
+function closeGuide(id){
+
+    const guide =
+        document.getElementById(id);
+
+    guide.style.display =
+        "none";
+
+    document.body.classList.remove(
+        "locked"
+    );
+}
+
+
+/* ESCAPE KEY */
+
+document.addEventListener(
+    "keydown",
+    function(event){
+
+        if(event.key === "Escape"){
+
+            const guides =
+                document.querySelectorAll(
+                    ".guide-window"
+                );
+
+            guides.forEach(
+                function(guide){
+
+                    guide.style.display =
+                        "none";
+
+                }
+            );
+
+            document.body.classList.remove(
+                "locked"
+            );
+        }
+
+    }
+);
+
+</script>
+
+
+</body>
+</html>
